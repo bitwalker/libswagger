@@ -6,7 +6,8 @@ defmodule Swagger.Schema.Security do
   alias Swagger.Schema.Utils
   alias __MODULE__
 
-  @type t :: Basic.t
+  @type t :: None.t
+    | Basic.t
     | ApiKey.t
     | OAuth2Implicit.t
     | OAuth2Password.t
@@ -27,6 +28,14 @@ defmodule Swagger.Schema.Security do
       "accessCode"  -> Security.OAuth2AccessCode.from_schema(id, schema)
       type          -> {:error, {:invalid_oauth_security_type, type}}
     end
+  end
+
+  defmodule None do
+    defstruct id: "none",
+      description: "no security",
+      properties: %{}
+
+    @type t :: %__MODULE__{id: String.t, description: String.t, properties: Map.t}
   end
 
   defmodule Basic do
