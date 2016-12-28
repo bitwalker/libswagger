@@ -43,11 +43,10 @@ defmodule Swagger.Schema do
     Poison.decode!(response.body)
   end
 
-  defp extract_schemes(%{"schemes" => []}), do: ["http"]
   defp extract_schemes(%{"schemes" => schemes}) when is_list(schemes) do
     schemes
   end
-  defp extract_schemes(_), do: ["http"]
+  defp extract_schemes(_), do: []
 
   defp extract_paths(%{"paths" => paths}) when is_map(paths) do
     Enum.reduce(paths, %{}, fn

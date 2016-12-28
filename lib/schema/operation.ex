@@ -18,7 +18,7 @@ defmodule Swagger.Schema.Operation do
     consumes: [],
     parameters: %{},
     responses: %{},
-    schemes: %{},
+    schemes: [],
     deprecated?: false,
     security: nil,
     properties: %{}
@@ -53,7 +53,7 @@ defmodule Swagger.Schema.Operation do
         |> Map.put(:consumes, Utils.extract_media_types(op, "consumes"))
         |> Map.put(:parameters, params)
         |> Map.put(:responses, extract_responses(op))
-        |> Map.put(:schemes, Map.get(op, "schemes"))
+        |> Map.put(:schemes, Map.get(op, "schemes", []))
         |> Map.put(:deprecated?, Map.get(op, "deprecated", false))
         |> Map.put(:security, Map.get(op, "security", nil))
         |> Map.put(:properties, Utils.extract_properties(op))
