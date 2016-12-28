@@ -22,4 +22,5 @@ defmodule Swagger.Schema.Utils do
       _ -> []
     end
   end
+
 end

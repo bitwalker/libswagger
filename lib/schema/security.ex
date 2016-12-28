@@ -36,6 +36,8 @@ defmodule Swagger.Schema.Security do
       properties: %{}
 
     @type t :: %__MODULE__{id: String.t, description: String.t, properties: Map.t}
+
+    use Swagger.Access
   end
 
   defmodule Basic do
@@ -44,6 +46,8 @@ defmodule Swagger.Schema.Security do
       properties: %{}
 
     @type t :: %__MODULE__{id: String.t, description: String.t, properties: Map.t}
+
+    use Swagger.Access
 
     def from_schema(id, schema) when is_map(schema) do
       %__MODULE__{id: id}
@@ -62,6 +66,8 @@ defmodule Swagger.Schema.Security do
     @type in_type :: :header | :query
     @type t :: %__MODULE__{id: String.t, description: String.t, properties: Map.t,
                            name: String.t, in: in_type}
+
+    use Swagger.Access
 
     def from_schema(id, schema) when is_map(schema) do
       %__MODULE__{id: id}
@@ -82,6 +88,8 @@ defmodule Swagger.Schema.Security do
     @type t :: %__MODULE__{id: String.t, description: String.t, properties: Map.t,
                            scopes: String.t, authorization_url: String.t}
 
+    use Swagger.Access
+
     def from_schema(id, schema) when is_map(schema) do
       %__MODULE__{id: id}
       |> Map.put(:description, schema["description"])
@@ -100,6 +108,8 @@ defmodule Swagger.Schema.Security do
 
     @type t :: %__MODULE__{id: String.t, description: String.t, properties: Map.t,
                            scopes: String.t, token_url: String.t}
+
+    use Swagger.Access
 
     def from_schema(id, schema) when is_map(schema) do
       %__MODULE__{id: id}
@@ -120,6 +130,8 @@ defmodule Swagger.Schema.Security do
     @type t :: %__MODULE__{id: String.t, description: String.t, properties: Map.t,
                            scopes: String.t, token_url: String.t}
 
+    use Swagger.Access
+
     def from_schema(id, schema) when is_map(schema) do
       %__MODULE__{id: id}
       |> Map.put(:description, schema["description"])
@@ -139,6 +151,8 @@ defmodule Swagger.Schema.Security do
 
     @type t :: %__MODULE__{id: String.t, description: String.t, properties: Map.t,
                            scopes: String.t, token_url: String.t, authorization_url: String.t}
+
+    use Swagger.Access
 
     def from_schema(id, schema) when is_map(schema) do
       %__MODULE__{id: id}

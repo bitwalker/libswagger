@@ -81,6 +81,8 @@ defmodule Swagger.Schema.Parameter do
       multiple_of: pos_integer
     }
 
+    use Swagger.Access
+
     def from_schema(%{"type" => type} = schema) when type in ["number", "integer"] do
       %__MODULE__{type: String.to_atom(type)}
       |> Map.put(:format, schema["format"])
@@ -128,6 +130,8 @@ defmodule Swagger.Schema.Parameter do
 
     @type t :: %__MODULE__{name: String.t, description: String.t, required?: boolean, schema: Map.t, properties: Map.t}
 
+    use Swagger.Access
+
     def from_schema(name, schema) when is_map(schema) do
       %__MODULE__{name: name}
       |> Map.put(:description, schema["description"])
@@ -145,6 +149,8 @@ defmodule Swagger.Schema.Parameter do
       properties: %{}
 
     @type t :: %__MODULE__{name: String.t, description: String.t, required?: boolean, spec: Primitive.t, properties: Map.t}
+
+    use Swagger.Access
 
     def from_schema(name, schema) when is_map(schema) do
       %__MODULE__{name: name}
@@ -165,6 +171,8 @@ defmodule Swagger.Schema.Parameter do
 
     @type t :: %__MODULE__{name: String.t, description: String.t, required?: boolean, allow_empty?: boolean,
                            spec: Primitive.t, properties: Map.t}
+
+    use Swagger.Access
 
     def from_schema(name, schema) when is_map(schema) do
       %__MODULE__{name: name}
@@ -187,6 +195,8 @@ defmodule Swagger.Schema.Parameter do
     @type t :: %__MODULE__{name: String.t, description: String.t, required?: boolean, allow_empty?: boolean,
                            spec: Primitive.t, properties: Map.t}
 
+    use Swagger.Access
+
     def from_schema(name, schema) when is_map(schema) do
       %__MODULE__{name: name}
       |> Map.put(:description, schema["description"])
@@ -205,6 +215,8 @@ defmodule Swagger.Schema.Parameter do
       properties: %{}
 
     @type t :: %__MODULE__{name: String.t, description: String.t, required?: boolean, spec: Primitive.t, properties: Map.t}
+
+    use Swagger.Access
 
     def from_schema(name, schema) when is_map(schema) do
       %__MODULE__{name: name}

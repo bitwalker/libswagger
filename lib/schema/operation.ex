@@ -40,6 +40,8 @@ defmodule Swagger.Schema.Operation do
     properties: Map.t
   }
 
+  use Swagger.Access
+
   def from_schema(name, %{"operationId" => id} = op) do
     case extract_parameters(op) do
       {:error, _} = err ->
@@ -55,11 +57,18 @@ defmodule Swagger.Schema.Operation do
         |> Map.put(:responses, extract_responses(op))
         |> Map.put(:schemes, Map.get(op, "schemes", []))
         |> Map.put(:deprecated?, Map.get(op, "deprecated", false))
-        |> Map.put(:security, Map.get(op, "security", nil))
+        |> Map.put(:security, extract_security(op))
         |> Map.put(:properties, Utils.extract_properties(op))
         {:ok, res}
     end
   end
+
+  defp extract_security(%{"security" => security_requirements}) when is_list(security_requirements) do
+    security_requirements
+    |> Enum.flat_map(fn req -> Enum.into(req, []) end)
+    |> Enum.into(%{})
+  end
+  defp extract_security(_), do: %{}
 
   defp extract_parameters(%{"parameters" => parameters}) when is_list(parameters) do
     Enum.reduce(parameters, %{}, fn

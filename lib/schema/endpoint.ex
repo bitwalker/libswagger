@@ -23,6 +23,8 @@ defmodule Swagger.Schema.Endpoint do
                          operations: %{String.t => Operation.t},
                          properties: Map.t}
 
+  use Swagger.Access
+
   def from_schema(path, schema) when is_map(schema) do
     case extract_parameters(schema) do
       {:error, _} = err ->
