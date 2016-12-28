@@ -18,6 +18,7 @@ defmodule Swagger.Mixfile do
     [{:poison, "~> 3.0"},
      {:tesla, "~> 0.5.2"},
      {:hackney, "~> 1.6", optional: true},
+     {:yamerl, github: "yakaz/yamerl", tag: "v0.4.0", override: true},
      {:yaml_elixir, "~> 1.1"},
      {:ex_json_schema, "~> 0.5"}]
   end
