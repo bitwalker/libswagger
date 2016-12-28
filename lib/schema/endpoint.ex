@@ -37,7 +37,7 @@ defmodule Swagger.Schema.Endpoint do
               parameters: params,
               operations: ops,
               properties: Utils.extract_properties(schema)}
-            route_pattern = construct_route_pattern(endpoint)
+            route_pattern = Regex.compile!(construct_route_pattern(endpoint))
             {:ok, %{endpoint | route_pattern: route_pattern}}
         end
     end
