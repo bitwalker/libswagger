@@ -29,7 +29,7 @@ defmodule Swagger.Parser do
   Parses the given binary as JSON
   """
   def parse_json(json) do
-    with {:ok, parsed} <- Poison.decode!(json),
+    with {:ok, parsed} <- Poison.decode(json),
       do: {:ok, parsed |> expand() |> to_struct()}
   end
 
