@@ -16,6 +16,18 @@ defmodule Swagger.Schema do
     security: nil,
     properties: %{}
 
+  @type t :: %__MODULE__{
+    info: map(),
+    host: String.t,
+    base_path: String.t,
+    schemes: [String.t],
+    paths: map(),
+    consumes: [String.t],
+    produces: [String.t],
+    security_definitions: %{String.t => Security.t},
+    security: [String.t | {String.t, [String.t]}],
+    properties: map()}
+
   use Swagger.Access
 
   def from_schema(schema) when is_map(schema) do
