@@ -2,10 +2,10 @@
   "ex_json_schema": {:hex, :ex_json_schema, "0.5.3", "f2db8eb71ca7a836607d67021d1b9c24f192dd5d1ec6b6b1c89bc934fec3bf5e", [:mix], []},
   "hackney": {:hex, :hackney, "1.6.5", "8c025ee397ac94a184b0743c73b33b96465e85f90a02e210e86df6cbafaa5065", [:rebar3], [{:certifi, "0.7.0", [hex: :certifi, optional: false]}, {:idna, "1.2.0", [hex: :idna, optional: false]}, {:metrics, "1.0.1", [hex: :metrics, optional: false]}, {:mimerl, "1.0.2", [hex: :mimerl, optional: false]}, {:ssl_verify_fun, "1.1.1", [hex: :ssl_verify_fun, optional: false]}]},
   "idna": {:hex, :idna, "1.2.0", "ac62ee99da068f43c50dc69acf700e03a62a348360126260e87f2b54eced86b2", [:rebar3], []},
+  "maxwell": {:git, "https://github.com/bitwalker/maxwell.git", "afeab14013d1547651f083d1d70975ee14b5344a", []},
   "metrics": {:hex, :metrics, "1.0.1", "25f094dea2cda98213cecc3aeff09e940299d950904393b2a29d191c346a8486", [:rebar3], []},
   "mimerl": {:hex, :mimerl, "1.0.2", "993f9b0e084083405ed8252b99460c4f0563e41729ab42d9074fd5e52439be88", [:rebar3], []},
   "poison": {:hex, :poison, "3.0.0", "625ebd64d33ae2e65201c2c14d6c85c27cc8b68f2d0dd37828fde9c6920dd131", [:mix], []},
   "ssl_verify_fun": {:hex, :ssl_verify_fun, "1.1.1", "28a4d65b7f59893bc2c7de786dec1e1555bd742d336043fe644ae956c3497fbe", [:make, :rebar], []},
-  "tesla": {:hex, :tesla, "0.5.2", "614297046c638b8c1695e8b6e63e6bffd107c07a67e4cb8cc4bb46598be735f1", [:mix], [{:exjsx, ">= 0.1.0", [hex: :exjsx, optional: true]}, {:hackney, "~> 1.6.0", [hex: :hackney, optional: true]}, {:ibrowse, "~> 4.2", [hex: :ibrowse, optional: true]}, {:poison, ">= 1.0.0", [hex: :poison, optional: true]}]},
   "yamerl": {:git, "https://github.com/yakaz/yamerl.git", "e8b016950148343461e30f4e85e99c018bf8730b", [tag: "v0.4.0"]},
   "yaml_elixir": {:hex, :yaml_elixir, "1.3.0", "5b945c235f0bc9d49c60927834576952c9e106afbc1dfa76ffcf615d7615e35f", [:mix], [{:yamerl, "~> 0.3.2", [hex: :yamerl, optional: false]}]}}

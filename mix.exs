@@ -11,12 +11,12 @@ defmodule Swagger.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :poison, :yaml_elixir, :ex_json_schema, :tesla]]
+    [applications: [:logger, :poison, :yaml_elixir, :ex_json_schema, :maxwell]]
   end
 
   defp deps do
-    [{:poison, "~> 3.0"},
-     {:tesla, "~> 0.5.2"},
+    [{:poison, "~> 3.0", override: true},
+     {:maxwell, github: "bitwalker/maxwell"},
      {:hackney, "~> 1.6", optional: true},
      {:yamerl, github: "yakaz/yamerl", tag: "v0.4.0", override: true},
      {:yaml_elixir, "~> 1.1"},

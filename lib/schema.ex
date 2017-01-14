@@ -53,8 +53,13 @@ defmodule Swagger.Schema do
   Used by ex_json_schema for remote resolution of schemas
   """
   def resolve(url) do
-    response = Tesla.get(url)
-    Poison.decode!(response.body)
+    case Maxwell.get(Maxwell.Conn.put_path(url)) do
+      {:ok, conn} ->
+        body = Maxwell.Conn.get_resp_body(conn)
+        Poison.decode!(body)
+      {:error, reason, _conn} ->
+        raise "failed to resolve schema: #{inspect reason}"
+    end
   end
 
   defp extract_schemes(%{"schemes" => schemes}) when is_list(schemes) do
