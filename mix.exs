@@ -16,7 +16,7 @@ defmodule Swagger.Mixfile do
 
   defp deps do
     [{:poison, "~> 3.0", override: true},
-     {:maxwell, github: "zhongwencool/maxwell"},
+     {:maxwell, github: "bitwalker/maxwell"},
      {:hackney, "~> 1.6", optional: true},
      {:yamerl, github: "yakaz/yamerl", tag: "v0.4.0", override: true},
      {:yaml_elixir, "~> 1.1"},
