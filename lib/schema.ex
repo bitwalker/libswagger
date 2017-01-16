@@ -121,7 +121,10 @@ defmodule Swagger.Schema do
   end
 
   defp apply_security_requirements(security_definitions, obj, reqs) do
-    security = Enum.reduce(reqs, [], fn
+    security = 
+    reqs
+    |> Enum.flat_map(fn r -> r end)
+    |> Enum.reduce([], fn
       _, {:error, _} = err ->
         err
       {req_name, []}, acc ->
